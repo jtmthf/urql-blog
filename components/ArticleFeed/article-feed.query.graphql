@@ -1,0 +1,27 @@
+query ArticleFeed(
+  $first: Int
+  $last: Int
+  $before: String
+  $after: String
+  $tag: String
+  $author: String
+  $favorited: String
+) {
+  articles(
+    first: $first
+    last: $last
+    before: $before
+    after: $after
+    tag: $tag
+    author: $author
+    favorited: $favorited
+  ) {
+    edges {
+      cursor
+      node {
+        ...ArticlePreview
+      }
+    }
+    ...Pagination
+  }
+}

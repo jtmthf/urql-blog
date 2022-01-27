@@ -1,0 +1,2 @@
+schema: "graphql/modules/**/typedefs/*graphql"
+documents: "**/*.{query,mutation,fragment,subscription}.graphql"

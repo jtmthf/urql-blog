@@ -1,0 +1,27 @@
+.container {
+  @apply flex items-center;
+}
+
+.image {
+  @apply h-8;
+}
+
+.meta {
+  @apply ml-2 mr-6 flex flex-col;
+}
+
+.username {
+  @apply font-medium text-base;
+}
+
+.primary {
+  @apply text-green-400;
+}
+
+.secondary {
+  @apply text-white;
+}
+
+.createdAt {
+  @apply text-xs text-gray-500;
+}

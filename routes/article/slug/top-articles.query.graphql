@@ -1,0 +1,9 @@
+query TopArticles($first: Int!) {
+  articles(first: $first) {
+    edges {
+      node {
+        slug
+      }
+    }
+  }
+}

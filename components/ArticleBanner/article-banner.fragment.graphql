@@ -1,0 +1,6 @@
+fragment ArticleBanner on Article {
+  id
+  title
+  favoritedCount
+  ...ArticleAuthorMeta
+}

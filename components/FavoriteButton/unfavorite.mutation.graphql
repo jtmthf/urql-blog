@@ -1,0 +1,5 @@
+mutation UnfavoriteArticle($slug: String!) {
+  unfavoriteArticle(input: { slug: $slug }) {
+    ...Favorite
+  }
+}

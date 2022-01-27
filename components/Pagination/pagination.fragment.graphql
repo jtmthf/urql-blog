@@ -1,0 +1,8 @@
+fragment Pagination on Connection {
+  pageInfo {
+    hasNextPage
+    hasPreviousPage
+    startCursor
+    endCursor
+  }
+}

@@ -1,0 +1,16 @@
+.pagination {
+  @apply grid place-content-center gap-4 my-4;
+  grid-template-columns: repeat(2, min-content);
+}
+
+.link {
+  @apply inline-flex items-center gap-2 text-green-400 text-xl border border-green-400 rounded-md p-2;
+}
+
+.link:hover {
+  @apply bg-green-400 text-white;
+}
+
+.disabled {
+  @apply opacity-40 cursor-not-allowed pointer-events-none;
+}

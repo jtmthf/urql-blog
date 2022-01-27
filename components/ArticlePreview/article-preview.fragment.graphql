@@ -1,0 +1,15 @@
+fragment ArticlePreview on Article {
+  id
+  slug
+  title
+  description
+  ...Favorite
+  ...ArticleAuthorMeta
+  tags(first: 3) {
+    edges {
+      node {
+        ...Tag
+      }
+    }
+  }
+}

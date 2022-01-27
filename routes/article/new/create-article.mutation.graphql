@@ -1,0 +1,18 @@
+mutation CreateArticle(
+  $title: String!
+  $description: String!
+  $body: String!
+  $tags: [String!]!
+) {
+  createArticle(
+    input: {
+      title: $title
+      description: $description
+      body: $body
+      tags: $tags
+    }
+  ) {
+    id
+    slug
+  }
+}

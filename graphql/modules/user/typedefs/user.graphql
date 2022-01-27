@@ -1,0 +1,29 @@
+type Query {
+  me: Self!
+}
+
+type Mutation {
+  updateUser(input: UpdateUserPayload!): Self!
+}
+
+interface User implements Node {
+  id: ID!
+  username: String!
+  bio: String
+  image: String
+}
+
+type Self implements User & Node {
+  id: ID!
+  email: String!
+  username: String!
+  bio: String
+  image: String
+}
+
+input UpdateUserPayload {
+  email: String
+  username: String
+  image: String
+  bio: String
+}

@@ -1,0 +1,31 @@
+overwrite: true
+schema: "graphql/modules/**/typedefs/*.graphql"
+documents: "**/*.{query,mutation,fragment,subscription}.graphql"
+generates:
+  graphql/modules:
+    preset: graphql-modules
+    presetConfig:
+      baseTypesPath: ../generated/graphql.ts
+      filename: generated/module-types.ts # Where to create each module types
+    config:
+      contextType: GraphQLModules.Context
+      mapperTypeSuffix: Model
+      mappers:
+        Article: "@prisma/client#Article"
+        Comment: "@prisma/client#Comment"
+        User: "@prisma/client#User"
+    plugins:
+      - add:
+          content: "/* eslint-disable */"
+      - typescript
+      - typescript-resolvers
+  ./:
+    preset: near-operation-file
+    presetConfig:
+      extension: .generated.tsx
+      baseTypesPath: graphql/generated/graphql.ts
+    plugins:
+      - "typescript-operations"
+      - "typed-document-node"
+    config:
+      dedupeFragments: true

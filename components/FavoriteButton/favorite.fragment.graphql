@@ -1,0 +1,6 @@
+fragment Favorite on Article {
+  id
+  slug
+  favorited
+  favoritedCount
+}

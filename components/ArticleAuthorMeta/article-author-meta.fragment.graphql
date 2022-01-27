@@ -1,0 +1,8 @@
+fragment ArticleAuthorMeta on Article {
+  createdAt
+  author {
+    id
+    username
+    image
+  }
+}

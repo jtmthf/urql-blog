@@ -1,0 +1,9 @@
+fragment CommentView on Comment {
+  id
+  body
+  createdAt
+  author {
+    username
+    image
+  }
+}

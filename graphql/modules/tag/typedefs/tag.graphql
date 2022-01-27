@@ -1,0 +1,23 @@
+extend type Query {
+  tags(first: Int, last: Int, before: String, after: String): TagConnection!
+}
+
+type Tag implements Node {
+  id: ID!
+  name: String!
+}
+
+extend type Article {
+  tags(first: Int, last: Int, before: String, after: String): TagConnection!
+}
+
+type TagConnection implements Connection {
+  nodes: [Tag!]!
+  edges: [TagEdge!]!
+  pageInfo: PageInfo!
+}
+
+type TagEdge implements Edge {
+  cursor: String!
+  node: Tag!
+}

@@ -1,0 +1,11 @@
+.main {
+  @apply grid grid-cols-4 gap-4;
+}
+
+.tab {
+  @apply p-2 text-gray-500;
+}
+
+.tab[data-state="active"] {
+  @apply border-b-green-400 border-b-2 text-green-400;
+}

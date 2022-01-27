@@ -1,0 +1,24 @@
+extend type Query {
+  getProfile(username: String!): User
+}
+
+extend type Mutation {
+  followUser(input: FollowUserPayload!): Profile!
+  unfollowUser(input: UnfollowUserPayload!): Profile!
+}
+
+input FollowUserPayload {
+  username: String!
+}
+
+input UnfollowUserPayload {
+  username: String!
+}
+
+type Profile implements User & Node {
+  id: ID!
+  username: String!
+  bio: String
+  image: String
+  following: Boolean
+}

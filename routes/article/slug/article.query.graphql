@@ -1,0 +1,20 @@
+query Article($slug: String!) {
+  getArticle(slug: $slug) {
+    id
+    slug
+    title
+    description
+    body
+    author {
+      username
+    }
+    ...ArticleBanner
+    comments(first: 10) {
+      edges {
+        node {
+          ...CommentView
+        }
+      }
+    }
+  }
+}

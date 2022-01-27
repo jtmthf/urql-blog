@@ -1,0 +1,65 @@
+extend type Mutation {
+  addComment(input: AddCommentInput!): AddCommentPayload!
+  deleteComment(input: DeleteCommentInput!): DeleteCommentPayload!
+}
+
+extend type Article {
+  comments(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): CommentConnection!
+}
+
+type Comment implements Node {
+  id: ID!
+  body: String!
+  createdAt: String!
+  updatedAt: String!
+  author: User!
+}
+
+type CommentConnection implements Connection {
+  edges: [CommentEdge!]!
+  nodes: [Comment!]!
+  pageInfo: PageInfo!
+}
+
+type CommentEdge implements Edge {
+  cursor: String!
+  node: Comment!
+}
+
+type AddCommentSuccess {
+  comment: Comment!
+}
+
+type ArticleDoesNotExistError {
+  message: String!
+}
+
+union AddCommentPayload = AddCommentSuccess | ArticleDoesNotExistError
+
+type DeleteCommentSuccess {
+  successful: Boolean!
+}
+
+type ForbiddenError {
+  message: String
+}
+
+union DeleteCommentPayload =
+    DeleteCommentSuccess
+  | ArticleDoesNotExistError
+  | ForbiddenError
+
+input AddCommentInput {
+  slug: String!
+  body: String!
+}
+
+input DeleteCommentInput {
+  slug: String!
+  id: ID!
+}
